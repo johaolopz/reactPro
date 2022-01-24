@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 
 //INTERFACE
 interface CounterProps {
-    initialValue: number
+    initialValue?: number
 }
 
-export const Counter = ({initialValue}:CounterProps) => {
+//Se puede dar un default value a la prop y hacerla opcional en la interface con "?"
+export const Counter = ({initialValue=0}:CounterProps) => {
     const [counter, setCounter] = useState(initialValue)
 
     const handleClick = ()=>{

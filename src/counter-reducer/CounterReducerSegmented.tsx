@@ -1,6 +1,11 @@
 import {useReducer} from 'react';
 import { CounterState } from './interfaces/interfaces';
 import { counterReducer } from './state/counterReducer';
+//Importación de acciones
+//import { doReset, doIncreseBy, CounterAction } from './actions/actions';
+
+////##### OTRA FORMA DE IMPORTAR LAS ACCIONES #####////
+import * as actions from './actions/actions';
 
 const INITIAL_STATE:CounterState = {
     counter: 10,
@@ -13,11 +18,11 @@ export const CounterReducerSegmented = () => {
     const [ counterState, dispatch] = useReducer(counterReducer, INITIAL_STATE);
 
     const increaseBy = (value:number) => {
-        dispatch({ type: 'increaseBy', payload: { value } })
+        dispatch( actions.doIncreseBy(value) )
     }
     
     const handleReset = ()=>{
-        dispatch({ type: 'reset'})
+        dispatch( actions.doReset() )
     }
   return <>
       <h1>CounterReducerSegmented</h1>
